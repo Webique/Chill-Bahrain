@@ -30,21 +30,16 @@
       height: 100%;
       border: none; /* Remove border around the PDF iframe */
     }
-
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      .pdf-container iframe {
-        height: calc(100vh - 20px); /* Adjust height slightly for smaller screens */
-      }
-    }
-
-    @media (max-width: 480px) {
-      .pdf-container iframe {
-        width: 95%; /* Add padding for smaller screens */
-        height: calc(100vh - 40px); /* Adjust height slightly */
-      }
-    }
   </style>
+  <script>
+    // Detect mobile devices and redirect to the PDF directly
+    document.addEventListener('DOMContentLoaded', () => {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.location.href = 'menu.pdf'; // Redirect to the PDF directly
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="pdf-container">

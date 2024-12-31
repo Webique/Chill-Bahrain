@@ -25,6 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.style.display = "none"; // Hide in mobile view if not active
     }
   });
+
+  // Redirect to PDF on mobile
+  if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+    const menuLink = document.querySelector('.nav-links a[href="menu.html"]');
+    if (menuLink) {
+      menuLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.location.href = "menu.pdf"; // Redirect to the PDF directly
+      });
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -81,10 +92,6 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.5 });
 
 observer.observe(section);
-
-
-
-
 
 // Close the menu when a link inside it is clicked
 document.querySelectorAll('.nav-links a').forEach(link => {
