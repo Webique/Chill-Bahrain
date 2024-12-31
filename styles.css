@@ -347,33 +347,38 @@ html {
 
 /* Tablets */
 @media (max-width: 768px) {
+  .about-us {
+    padding: 60px 20px; /* Increase padding for a more spacious look */
+  }
+
   .about-us h2 {
-    font-size: 1.8rem; /* Adjust font size for smaller screens */
-    letter-spacing: 1.5px;
+    font-size: 2rem; /* Larger heading for emphasis */
+    letter-spacing: 1.8px; /* Slightly more spacing for better visual balance */
   }
 
   .about-us p {
-    font-size: 0.9rem; /* Adjust paragraph font size */
-    line-height: 1.6;
+    font-size: 1.2rem; /* Increase paragraph font size */
+    line-height: 1.8; /* Better spacing between lines */
   }
 }
 
 /* Mobile Phones */
 @media (max-width: 480px) {
   .about-us {
-    padding: 40px 15px; /* Reduce padding for smaller screens */
+    padding: 50px 20px; /* Further increased padding */
   }
 
   .about-us h2 {
-    font-size: 1.5rem; /* Further adjust font size for small devices */
-    letter-spacing: 1px;
+    font-size: 2rem; /* Larger font size for better readability */
+    letter-spacing: 1.5px; /* Maintain good spacing */
   }
 
   .about-us p {
-    font-size: 0.85rem; /* Further adjust paragraph font size */
-    line-height: 1.5;
+    font-size: 1.2rem; /* Slightly larger font size for clarity */
+    line-height: 1.6; /* Maintain readable line spacing */
   }
 }
+
 
 
 /* ===== Opening Hours Section Styling ===== */
@@ -507,56 +512,130 @@ html {
 
 
 
-/* ===== Location Section Styling ===== */
+/* ===== Renovated Location Section ===== */
 .location-section {
-  background-color: rgba(255, 254, 252, 1); /* White background */
-  padding: 60px 20px; /* Ample spacing */
-  color: rgba(160, 174, 171, 1); /* Text color consistent with the theme */
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: rgba(255, 254, 252, 1);
+  padding: 60px 20px;
+  color: rgba(160, 174, 171, 1);
+  text-align: left;
 }
 
-.location-section .section-title {
-  font-size: 3rem;
+.location-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.location-info {
+  flex: 1 1 40%;
+}
+
+.location-info .section-title {
+  font-size: 2.5rem;
   font-weight: 900;
-  color: rgba(145, 221, 209, 1); /* Matches the accent color */
+  color: rgba(145, 221, 209, 1);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); /* Text shadow */
-  opacity: 0; /* Initially hidden */
-  transform: translateY(50px); /* Start slightly below */
-  transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth fade-in and slide */
 }
 
-.location-section .map-wrapper {
+.location-info p {
+  font-size: 1.6rem; /* Increased font size for better readability */
+  line-height: 1.8; /* Improved line height for better spacing */
+  letter-spacing: 1px; /* Matches the font style of titles */
+  font-weight: 500; /* Slightly bold text for emphasis */
+  color: rgba(160, 174, 171, 1); /* Keeps the same text color consistent */
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1); /* Adds a subtle text shadow */
+}
 
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds shadow to the map for depth */
+
+.location-info .btn {
+  display: inline-block;
+  background-color: rgba(145, 221, 209, 1);
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.location-info .btn:hover {
+  background-color: rgba(122, 199, 185, 1);
+}
+
+.map-wrapper {
+  flex: 1 1 60%;
+  height: 100%; /* Ensures full height for the map container */
+  padding: 0; /* Removes any padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
   border-radius: 8px; /* Smooth corners */
-  overflow: hidden; /* Ensures content stays within the rounded corners */
+  overflow: hidden; /* Keeps the map neatly within the rounded corners */
 }
 
-.location-section.visible .section-title {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Reset position */
+.location-section iframe {
+  width: 100%;
+  height: 100%;
+  border: none; /* Removes border for a cleaner look */
 }
 
-/* Responsive Design */
+.map-container {
+  flex: 1 1 60%;
+  text-align: center; /* Center the map title above the map */
+}
+
+.map-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(145, 221, 209, 1); /* Matches the accent color */
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); /* Consistent text shadow */
+}
+
+
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-  .location-section .section-title {
-    font-size: 2rem;
-    letter-spacing: 1.5px;
+  .location-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .location-info {
+    flex: 1 1 100%;
+    padding: 10px 0; /* Add slight padding for better spacing */
+  }
+
+  .map-wrapper {
+    flex: 1 1 100%;
   }
 }
 
 @media (max-width: 480px) {
   .location-section {
-    padding: 40px 15px; /* Reduced padding for small screens */
+    padding: 40px 15px; /* Reduce overall padding */
   }
 
-  .location-section .section-title {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
+  .location-info .section-title {
+    font-size: 2rem; /* Match heading size to About Us section */
+    letter-spacing: 1.5px; /* Adjust letter spacing for readability */
+  }
+
+  .location-info p {
+    font-size: 1.2rem; /* Match paragraph size to About Us */
+    line-height: 1.6; /* Ensure adequate spacing between lines */
+    letter-spacing: 1px; /* Consistent letter spacing */
+  }
+
+  .location-info .btn {
+    font-size: 1.0rem; /* Slightly smaller button text */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
   }
 }
 
