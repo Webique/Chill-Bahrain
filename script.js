@@ -112,3 +112,18 @@ document.addEventListener('click', event => {
     menu.classList.remove('show');
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const homeLink = document.querySelector('.nav-links a[href="#home"]');
+
+  if (homeLink) {
+    homeLink.addEventListener("click", (e) => {
+      e.preventDefault(); // Prevent the default anchor behavior
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth", // Smooth scroll to the top
+      });
+    });
+  }
+});
+
