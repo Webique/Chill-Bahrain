@@ -562,13 +562,11 @@ html {
 
 
 
-
-
 /* ===== Footer Styling ===== */
 footer {
   background-color: rgba(145, 221, 209, 1);
   color: rgba(255, 254, 252, 1);
-  padding: 40px 25px; /* Increased padding for more spacing */
+  padding: 20px 15px; /* Reduced padding for a smaller footer */
   text-align: center;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -578,18 +576,18 @@ footer {
   justify-content: space-between;
   flex-wrap: wrap; /* Ensures responsiveness */
   align-items: center;
-  gap: 25px; /* Increased gap for better spacing */
+  gap: 15px; /* Reduced gap for a more compact layout */
 }
 
 /* Add font styles to contact-info and social-media headings */
 .contact-info h2,
 .social-media h2 {
-  font-size: 1.8rem; /* Increased font size */
-  margin-bottom: 15px; /* Increased spacing below headings */
-  letter-spacing: 1.2px; /* Slightly increased spacing */
+  font-size: 1.6rem; /* Slightly reduced font size */
+  margin-bottom: 10px; /* Reduced spacing below headings */
+  letter-spacing: 1px; /* Reduced spacing for a compact look */
   text-transform: uppercase;
   position: relative; /* Enables the outline effect */
-  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3); /* Adds a stronger 3D shadow effect */
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
 }
 
 .contact-info h2::before,
@@ -599,16 +597,17 @@ footer {
   top: 0;
   left: 0;
   color: transparent; /* Makes the outline invisible */
-  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.4); /* Creates a thicker outline effect */
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.3); /* Creates a smaller outline effect */
   z-index: -1; /* Ensures the outline is behind the main text */
 }
 
 /* Add font styles to contact-info paragraphs */
 .contact-info p {
-  margin: 10px 0; /* Increased vertical spacing */
-  font-size: 1.2rem; /* Slightly larger font size */
+  margin: 5px 0; /* Reduced vertical spacing */
+  font-size: 1.1rem; /* Slightly smaller font size */
+  font-weight: bold; /* Retained bold styling */
   position: relative; /* Enables the outline effect */
-  text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.2); /* Adds a stronger shadow */
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
 }
 
 .contact-info p::before {
@@ -617,23 +616,23 @@ footer {
   top: 0;
   left: 0;
   color: transparent; /* Makes the outline invisible */
-  -webkit-text-stroke: 1.2px rgba(0, 0, 0, 0.3); /* Creates the outline effect */
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3); /* Creates the outline effect */
   z-index: -1; /* Ensures the outline is behind the main text */
 }
 
 /* Add font styles to social media icons */
 .social-media .social-icon {
-  font-size: 2rem; /* Increased icon size */
+  font-size: 2.2rem; /* Slightly reduced icon size */
   color: rgba(255, 254, 252, 1);
-  margin: 0 15px; /* Increased spacing between icons */
+  margin: 0 12px; /* Reduced spacing between icons */
   transition: transform 0.3s, color 0.3s;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3); /* Adds a stronger shadow to icons */
+  text-shadow: 1.5px 1.5px 0 rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
 }
 
 .social-media .social-icon:hover {
   color: rgba(160, 174, 171, 1);
-  transform: scale(1.3); /* Slightly larger scaling on hover */
-  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4); /* Enhances the shadow on hover */
+  transform: scale(1.3); /* Retained scaling on hover */
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.4); /* Enhances the shadow on hover */
 }
 
 /* ===== Responsive Design ===== */
@@ -645,16 +644,16 @@ footer {
 
   .contact-info h2,
   .social-media h2 {
-    font-size: 1.6rem; /* Adjusted font size for smaller screens */
-    letter-spacing: 1px; /* Slightly reduced spacing */
+    font-size: 1.4rem; /* Reduced font size for smaller screens */
+    letter-spacing: 0.8px; /* Slightly reduced spacing */
   }
 
   .contact-info p {
-    font-size: 1.1rem; /* Slightly smaller font size */
+    font-size: 1rem; /* Slightly smaller font size */
   }
 
   .social-media .social-icon {
-    font-size: 1.8rem; /* Slightly smaller icon size */
+    font-size: 2.5rem; /* Slightly smaller icon size */
     margin: 0 10px; /* Adjusted spacing for smaller screens */
   }
 }
@@ -662,8 +661,8 @@ footer {
 @media (max-width: 480px) {
   .contact-info h2,
   .social-media h2 {
-    font-size: 1.4rem; /* Reduced font size for very small screens */
-    letter-spacing: 0.8px;
+    font-size: 1.2rem; /* Reduced font size for very small screens */
+    letter-spacing: 0.6px;
   }
 
   .contact-info p {
@@ -671,8 +670,9 @@ footer {
   }
 
   .social-media .social-icon {
-    font-size: 1.5rem; /* Reduced icon size */
+    font-size: 2.8rem; /* Reduced icon size further */
     margin: 0 8px; /* Reduced spacing */
   }
 }
+
 
