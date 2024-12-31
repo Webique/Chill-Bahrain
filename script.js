@@ -81,3 +81,27 @@ const observer = new IntersectionObserver((entries, observer) => {
 }, { threshold: 0.5 });
 
 observer.observe(section);
+
+
+
+
+
+// Close the menu when a link inside it is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    const menu = document.querySelector('.nav-links');
+    menu.classList.remove('show');
+  });
+});
+
+// Close the menu when clicking outside of it
+document.addEventListener('click', event => {
+  const menu = document.querySelector('.nav-links');
+  const toggle = document.querySelector('.toggle-menu');
+  const isClickInsideMenu = menu.contains(event.target);
+  const isClickOnToggle = toggle.contains(event.target);
+
+  if (!isClickInsideMenu && !isClickOnToggle) {
+    menu.classList.remove('show');
+  }
+});
