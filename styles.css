@@ -1,4 +1,65 @@
 /* ===== General Body Styling ===== */
+
+
+
+
+
+
+
+
+/* Prevent horizontal scrolling */
+body {
+  overflow-x: hidden; /* Disables horizontal scrolling */
+}
+
+/* Fix the menu scroll area */
+.menu-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Enables horizontal scrolling within the container */
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory; /* Ensures smooth scrolling for items */
+  margin: 0; /* Prevent unintended extra spacing */
+  width: 100%; /* Ensure the scroll container fits within the screen */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+/* Prevent scaling issues on smaller screens */
+.menu-card {
+  flex: 0 0 auto; /* Prevent cards from resizing */
+  min-width: 220px; /* Card width remains consistent */
+}
+
+html,
+body {
+  max-width: 100%; /* Prevent overflow due to scaling */
+}
+
+.menu-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.menu-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(145, 221, 209, 0.8);
+  border-radius: 8px;
+}
+
+.menu-scroll::-webkit-scrollbar-track {
+  background-color: rgba(255, 254, 252, 0.5);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -102,7 +163,6 @@ nav {
   color: rgba(255, 254, 252, 1);
   cursor: pointer;
 }
-
 /* ===== For Tablet Screens (Max Width: 768px) ===== */
 @media (max-width: 768px) {
   .toggle-menu {
@@ -114,11 +174,11 @@ nav {
 
   .nav-links {
     position: absolute;
-    top: 70px; /* Aligns dropdown directly below the header */
+    top: 150px; /* Set the menu to start further below */
     right: 20px; /* Align dropdown flush with the right edge */
     flex-direction: column;
     gap: 15px; /* Space between items */
-    width: 200px; /* Full width of the header */
+    width: 200px; /* Dropdown width */
     padding: 20px; /* Padding inside the dropdown */
     background-color: rgba(145, 221, 209, 1); /* Dropdown background */
     border-radius: 8px; /* Round corners at the bottom */
@@ -126,14 +186,14 @@ nav {
     display: none; /* Hidden by default */
     z-index: 1000; /* Ensure it's above other elements */
     opacity: 0; /* Invisible initially */
-    transform: translateY(-20px); /* Slightly above final position */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth dropdown transition */
+    transform: translateY(-50px); /* Start even higher above its final position */
+    transition: opacity 0.3s ease, transform 0.4s ease; /* Smooth dropdown transition */
   }
 
   .nav-links.show {
     display: flex; /* Make the dropdown menu visible */
     opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Slide to final position */
+    transform: translateY(0); /* Slide to its final position */
   }
 
   .nav-links a {
@@ -155,44 +215,10 @@ nav {
 }
 
 
-
-/* ===== For Mobile Screens (Max Width: 480px) ===== */
-@media (max-width: 480px) {
-  .logo {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-  }
-
-  .nav-links a {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-  }
-
-  
-}
-
-/* ===== For Smaller Mobile Screens (Max Width: 320px) ===== */
-@media (max-width: 320px) {
-  .logo {
-    font-size: 1.2rem;
-    letter-spacing: 0.8px;
-  }
-
-  .nav-links a {
-    font-size: 0.8rem;
-  }
-
-}
-
-
-
-/* ===== Hero Section Styling ===== */
-
-/* ===== Hero Section Styling ===== */
 /* ===== Hero Section Styling ===== */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 80vh; /* Adjusted height to make it shorter */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -259,6 +285,10 @@ nav {
     font-size: 3rem;
     letter-spacing: 3px;
   }
+
+  .hero {
+    height: 70vh; /* Further reduced height for tablets */
+  }
 }
 
 @media (max-width: 480px) {
@@ -266,7 +296,305 @@ nav {
     font-size: 2.5rem;
     letter-spacing: 2px;
   }
+
+  .hero {
+    height: 60vh; /* Further reduced height for small screens */
+  }
 }
+
+
+
+/* ===== Menu Section Styling ===== */
+.menu-section {
+  background-color: rgba(255, 254, 252, 1); /* Light background */
+  color: rgba(160, 174, 171, 1); /* Text color */
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.menu-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-section h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(145, 221, 209, 1); /* Accent color */
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.menu-section p {
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+/* ===== Horizontal Scrolling Wrapper ===== */
+.menu-scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.menu-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Enables horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Smooth snapping */
+  padding: 10px;
+  flex: 1;
+}
+
+.menu-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.menu-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(145, 221, 209, 0.8);
+  border-radius: 8px;
+}
+
+.menu-scroll::-webkit-scrollbar-track {
+  background-color: rgba(255, 254, 252, 0.5);
+}
+
+/* ===== Menu Card Styling ===== */
+.menu-card {
+  background-color: rgba(255, 255, 255, 1); /* White card */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  min-width: 220px; /* Consistent card size */
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%; /* Circular images */
+  border: 5px solid rgba(145, 221, 209, 0.5);
+  margin-bottom: 10px;
+}
+
+.menu-card h3 {
+  font-size: 1.2rem;
+  color: rgba(160, 174, 171, 1);
+}
+
+/* Hover Effects */
+.menu-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Scroll Arrows Styling ===== */
+.scroll-arrow {
+  background-color: rgba(145, 221, 209, 1);
+  color: rgba(255, 255, 255, 1);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.scroll-arrow:hover {
+  transform: scale(1.1);
+}
+
+.left-arrow {
+  left: 0;
+}
+
+.right-arrow {
+  right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== About Us Section Styling ===== */
+.about-us {
+  background-color: rgba(255, 254, 252, 1); /* Light background for contrast */
+  color: rgba(160, 174, 171, 1); /* Matches the text color of the theme */
+  padding: 60px 20px; /* Ample spacing for visual appeal */
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.about-us h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(145, 221, 209, 1); /* Accent color for the heading */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); /* Shadow effect for text */
+}
+
+.about-us h2::before {
+  content: "About Us";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.4); /* Outline effect for heading */
+  z-index: -1;
+}
+
+.about-us p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin: 10px 0;
+  position: relative;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
+.about-us p::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+
+
+
+
+
+/* ===== Opening Hours Section Styling ===== */
+.opening-hours {
+  background-color: rgba(145, 221, 209, 1); /* Matches header background color */
+  color: rgba(255, 254, 252, 1); /* White text for contrast */
+  padding: 60px 20px; /* Ample spacing for visual appeal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  min-height: 40vh; /* Ensures the section has a visible height */
+}
+
+.opening-hours h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); /* Shadow effect for text */
+}
+
+.opening-hours h2::before {
+  content: "Opening Hours";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.4); /* Outline effect for heading */
+  z-index: -1;
+}
+
+.hours-content {
+  max-width: 600px; /* Restricts width for better readability */
+}
+
+.hours-schedule {
+  font-size: 1.2rem;
+  line-height: 2;
+  margin: 20px 0;
+}
+
+.hours-schedule p {
+  margin: 10px 0;
+  font-weight: 700;
+  position: relative;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow for text */
+}
+
+
+
+/* ===== Location Section Styling ===== */
+.location-section {
+  background-color: rgba(255, 254, 252, 1); /* Light background for contrast */
+  color: rgba(160, 174, 171, 1); /* Text color to match theme */
+  padding: 60px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.location-section h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(145, 221, 209, 1); /* Accent color for heading */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); /* Shadow effect for text */
+}
+
+.location-section h2::before {
+  content: "Our Location";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.4); /* Outline effect for heading */
+  z-index: -1;
+}
+
+.location-section p {
+  font-size: 1rem;
+  margin: 10px 0;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow for text */
+  text-align: center;
+}
+
+.map-frame {
+  margin-top: 20px;
+  width: 100%; /* Ensure map adapts to container width */
+  max-width: 800px; /* Restrict maximum width for better visual balance */
+  border: 4px solid rgba(145, 221, 209, 1); /* Matches the theme color */
+  border-radius: 8px; /* Adds rounded corners to the map */
+  overflow: hidden; /* Ensures rounded corners are clean */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Adds depth to the map */
+}
+
+/* ===== Responsive Design for Larger Screens ===== */
+@media (min-width: 1024px) {
+  .map-frame {
+    max-width: 1000px; /* Wider map for laptops */
+  }
+}
+
+
 
 
 

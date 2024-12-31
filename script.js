@@ -26,3 +26,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+function scrollMenu(direction) {
+  const scrollContainer = document.querySelector('.menu-scroll');
+  const scrollAmount = 250; // Adjust scroll distance
+  if (direction === 'left') {
+    scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  } else if (direction === 'right') {
+    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  }
+}
+
