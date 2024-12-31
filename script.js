@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navLinks.style.display = "flex"; // Show the menu
       setTimeout(() => {
         navLinks.classList.add("show"); // Add animation
-      }, 10); // Add slight delay for smooth animation
+      }, 90); // Add slight delay for smooth animation
     }
   });
 
@@ -27,14 +27,57 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const aboutUsSection = document.querySelector('.about-us');
 
-function scrollMenu(direction) {
-  const scrollContainer = document.querySelector('.menu-scroll');
-  const scrollAmount = 250; // Adjust scroll distance
-  if (direction === 'left') {
-    scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-  } else if (direction === 'right') {
-    scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  function onScroll() {
+    const sectionPosition = aboutUsSection.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    if (sectionPosition.top <= viewportHeight - 100) {
+      aboutUsSection.classList.add('visible'); // Add the visible class
+      window.removeEventListener('scroll', onScroll); // Trigger only once
+    }
   }
-}
 
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // Check on load in case the section is already in view
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const section = document.querySelector('.opening-hours');
+  const title = section.querySelector('.section-title');
+  const wrapper = section.querySelector('.hours-wrapper');
+
+  function onScroll() {
+    const sectionPosition = section.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+
+    if (sectionPosition.top <= viewportHeight - 100) {
+      title.style.opacity = "1";
+      title.style.transform = "translateY(0)";
+      wrapper.style.opacity = "1";
+      wrapper.style.transform = "translateY(0)";
+      window.removeEventListener('scroll', onScroll); // Trigger only once
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // Check on load in case already in view
+});
+
+const section = document.querySelector('.location-section');
+const title = section.querySelector('.section-title');
+const mapWrapper = section.querySelector('.map-wrapper');
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      section.classList.add('visible');
+    } else {
+      section.classList.remove('visible');
+    }
+  });
+}, { threshold: 0.5 });
+
+observer.observe(section);
