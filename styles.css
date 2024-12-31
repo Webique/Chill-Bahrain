@@ -1,0 +1,401 @@
+/* ===== General Body Styling ===== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgba(145, 221, 209, 1); /* Matches the header background color */
+  color: rgba(160, 174, 171, 1);
+}
+
+/* ===== Container Styling ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== Header Styling ===== */
+header {
+  background-color: rgba(145, 221, 209, 1);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+header:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 900;
+  color: rgba(255, 254, 252, 1);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.logo::before {
+  content: "Chill Bahrain";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 254, 252, 1);
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  position: relative;
+  transition: color 0.3s, transform 0.3s, text-shadow 0.3s;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.nav-links a::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.nav-links a:hover {
+  color: rgba(160, 174, 171, 1);
+  transform: scale(1.1);
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.toggle-menu {
+  display: none;
+  font-size: 1.8rem;
+  color: rgba(255, 254, 252, 1);
+  cursor: pointer;
+}
+
+/* ===== For Tablet Screens (Max Width: 768px) ===== */
+@media (max-width: 768px) {
+  .toggle-menu {
+    display: block;
+    font-size: 1.8rem;
+    color: rgba(255, 254, 252, 1);
+    cursor: pointer;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px; /* Aligns dropdown directly below the header */
+    right: 20px; /* Align dropdown flush with the right edge */
+    flex-direction: column;
+    gap: 15px; /* Space between items */
+    width: 200px; /* Full width of the header */
+    padding: 20px; /* Padding inside the dropdown */
+    background-color: rgba(145, 221, 209, 1); /* Dropdown background */
+    border-radius: 8px; /* Round corners at the bottom */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Shadow for depth */
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure it's above other elements */
+    opacity: 0; /* Invisible initially */
+    transform: translateY(-20px); /* Slightly above final position */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth dropdown transition */
+  }
+
+  .nav-links.show {
+    display: flex; /* Make the dropdown menu visible */
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Slide to final position */
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    text-align: center;
+    color: rgba(255, 254, 252, 1);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 254, 252, 0.2);
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+
+  .nav-links a:hover {
+    background-color: rgba(160, 174, 171, 0.3); /* Highlight on hover */
+  }
+
+  .nav-links a:last-child {
+    border-bottom: none; /* Remove divider for the last item */
+  }
+}
+
+
+
+/* ===== For Mobile Screens (Max Width: 480px) ===== */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+  }
+
+  
+}
+
+/* ===== For Smaller Mobile Screens (Max Width: 320px) ===== */
+@media (max-width: 320px) {
+  .logo {
+    font-size: 1.2rem;
+    letter-spacing: 0.8px;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+}
+
+
+
+/* ===== Hero Section Styling ===== */
+
+/* ===== Hero Section Styling ===== */
+/* ===== Hero Section Styling ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Video Background Styling */
+.hero .slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden; /* Ensure video stays within the container */
+}
+
+.hero .slideshow video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire area */
+  filter: blur(3px); /* Apply blur effect if needed */
+}
+
+/* Overlay for Shadow Effect */
+.hero .slideshow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent shadow overlay */
+  z-index: 1; /* Above video but below content */
+}
+
+/* Hero Title Styling */
+.hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(255, 254, 252, 1);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  position: relative;
+  opacity: 1; /* Static visibility */
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5); /* Stronger shadow for text */
+  z-index: 2; /* Ensure it appears above everything else */
+}
+
+.hero-title::before {
+  content: "CHILL BAHRAIN";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+/* ===== Responsive Design for Hero Section ===== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+}
+
+
+
+
+/* ===== Footer Styling ===== */
+footer {
+  background-color: rgba(145, 221, 209, 1);
+  color: rgba(255, 254, 252, 1);
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Ensures responsiveness */
+  align-items: center;
+  gap: 20px;
+}
+
+/* Add font styles to contact-info and social-media headings */
+.contact-info h2,
+.social-media h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative; /* Enables the outline effect */
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2); /* Adds a subtle 3D shadow effect */
+}
+
+.contact-info h2::before,
+.social-media h2::before {
+  content: attr(data-text); /* Adds the outline using the same text */
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent; /* Makes the outline invisible */
+  -webkit-text-stroke: 1.5px rgba(0, 0, 0, 0.4); /* Creates the outline effect */
+  z-index: -1; /* Ensures the outline is behind the main text */
+}
+
+/* Add font styles to contact-info paragraphs */
+.contact-info p {
+  margin: 5px 0;
+  font-size: 1rem;
+  position: relative; /* Enables the outline effect */
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.contact-info p::before {
+  content: attr(data-text); /* Adds the outline using the same text */
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: transparent; /* Makes the outline invisible */
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.3); /* Creates the outline effect */
+  z-index: -1; /* Ensures the outline is behind the main text */
+}
+
+/* Add font styles to social media icons */
+.social-media .social-icon {
+  font-size: 1.5rem;
+  color: rgba(255, 254, 252, 1);
+  margin: 0 10px;
+  transition: transform 0.3s, color 0.3s;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2); /* Adds a subtle shadow to icons */
+}
+
+.social-media .social-icon:hover {
+  color: rgba(160, 174, 171, 1);
+  transform: scale(1.2);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3); /* Enhances the shadow on hover */
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Stacks the footer content */
+    text-align: center;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: rgba(145, 221, 209, 1);
+    flex-direction: column;
+    gap: 15px;
+    width: 200px;
+    padding: 20px;
+    display: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+
+  .toggle-menu {
+    display: block;
+  }
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  /* Navbar: Adjust the logo font size */
+  .logo {
+    font-size: 1.5rem; /* Reduces font size for smaller screens */
+    letter-spacing: 1px; /* Adjusts spacing for readability */
+  }
+
+  /* Footer: Adjust font sizes for headings and content */
+  .footer-content {
+    flex-direction: column; /* Stacks the footer content */
+    text-align: center;
+  }
+
+  .contact-info h2,
+  .social-media h2 {
+    font-size: 1.2rem; /* Reduces the heading font size */
+    letter-spacing: 0.5px; /* Adjusts spacing for smaller screens */
+  }
+
+  .contact-info p {
+    font-size: 0.9rem; /* Reduces the paragraph font size */
+  }
+
+  .social-media .social-icon {
+    font-size: 1.2rem; /* Reduces the icon size */
+  }
+}
